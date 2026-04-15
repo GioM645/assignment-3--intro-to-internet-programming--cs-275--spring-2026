@@ -1,0 +1,27 @@
+{
+  "name": "packageassignment-3--intro-to-internet-programming--cs-275--spring-2026",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "GioM645 on all platforms",
+  "license": "",
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.2",
+    "@eslint/js": "^10.0.1",
+    "browser-sync": "^3.0.4",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "help": "^3.0.2",
+    "json": "^11.0.0",
+    "nvm": "^0.0.4"
+  }
+}
