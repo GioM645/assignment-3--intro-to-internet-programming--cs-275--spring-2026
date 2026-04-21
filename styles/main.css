@@ -1,4 +1,21 @@
-//Menus
+/*Main Styles*/
+.banner {
+  background-color: wheat;
+  padding: 0.6rem;
+}
+
+.show-options {
+  list-style: none;
+}
+
+.show-options li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+/*Menus*/
 .dropdown-main ul {
   list-style-type: none;
   padding: 0px;
@@ -13,7 +30,7 @@
   text-align: center;
 }
 
-.dropdown-one .dropdown-items-one li a {
+#dropdown-items-one li a {
   display: none;
   position: relative;
   align: left;
@@ -24,11 +41,11 @@
   background-color: rgb(113, 182, 185);
   float: top;
   }
-.dropdown-one:hover .dropdown-items-one li a {
+#dropdown-one:hover #dropdown-items-one li a {
   display: block;
 }
 
-.dropdown-two .dropdown-items-two li a {
+#dropdown-two #dropdown-items-two li a {
   display: none;
   position: absolute;
   float: auto;
@@ -36,7 +53,7 @@
   background-color: rgb(113, 182, 185);
   }
 
-.dropdown-two:hover .dropdown-items-two li a {
+#dropdown-two:hover #dropdown-items-two li a {
   display: block;
   position: fixed;
   float: top;
@@ -63,8 +80,26 @@
     right: 60px;
   }
 
-  .dropdown-items-two{
+  #dropdown-items-two{
     position: absolute;
     right: 60px;
   }
+}
+
+/*modals*/
+.modal-panel {
+  position: absolute;
+}
+
+.modal-content-pane {
+  position: absolute;
+  justify-content: center;
+  left: 50%;
+  display: block;
+  width: 100px;
+}
+
+.modal-content img {
+  position: fixed;
+  max-width: 300px;
 }
