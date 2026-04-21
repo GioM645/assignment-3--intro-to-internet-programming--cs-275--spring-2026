@@ -1,18 +1,19 @@
 /*Main Styles*/
-.banner {
-  background-color: wheat;
-  padding: 0.6rem;
+body {
+  background-color: rgba(255, 245, 211, 0.844);
 }
 
 .show-options {
   list-style: none;
+}
+#js-triggers.show-options {
+  width: fit-content;
 }
 
 .show-options li a {
   display: block;
   text-decoration: none;
   text-align: center;
-
 }
 
 /*Menus*/
@@ -37,8 +38,8 @@
   box-shadow: 3px 3px 5px #3c3232b1;
   width: 60px;
   text-align: center;
-  right: 10%;
-  top: 21%;
+  right: 18%;
+  top: 7%;
   }
 
   .dropdown-items-one {
@@ -54,6 +55,14 @@
     text-align: center;
   }
 
+  .dropdown-items-one li a {
+    display: none;
+  }
+
+  #dropdown-one:hover .dropdown-items-one li a{
+    display: block;
+  }
+
   /* dropdown two */
   #dropdown-two {
   position: absolute;
@@ -62,8 +71,8 @@
   box-shadow: 3px 3px 5px #3c3232b1;
   width: 60px;
   text-align: center;
-  right: 5%;
-  top: 21%;
+  right: 12%;
+  top: 7%;
   }
 
   .dropdown-items-two {
@@ -79,20 +88,29 @@
     text-align: center;
   }
 
+  .dropdown-items-two li a {
+    display: none;
+  }
+
+  #dropdown-two:hover .dropdown-items-two li a{
+    display: block;
+  }
+
 @media only screen and (max-width: 786px){
 }
 
 /*modals*/
-.modal-panel {
+.modal-background {
+  display: flex;
   position: absolute;
-}
-
-.modal-content-pane {
-  position: absolute;
-  justify-content: center;
-  left: 50%;
-  display: block;
-  width: 100px;
+  z-index: 10;
+  height: 95vmax;
+  width: 100vmax;
+  background: #2120214e;
+  top: 0%;
+  left: 0%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .modal-content img {
@@ -100,6 +118,7 @@
   width: 600px;
   right: 30%;
   top: 5%;
+  z-index: 11;
 }
 
 #open-modal {
