@@ -1,18 +1,20 @@
 /* eslint-disable */
 
-
-let opener = document.getElementById("open-modal");
 let modal = document .querySelector(".modal-content");
-let modalPlaceholder = document.getElementById("open-modal");
-let modalVis = document.querySelector("open-modal");
+let openModal = document.getElementById("open-modal");
 let modalMaker = document.createElement("img");
-modalMaker.setAttribute("src", "sign.jpg");
+modalMaker.setAttribute("src", "MAXIMIZE-YOUR-MODALS.png");
 modalMaker.setAttribute("style", "opacity:0%;");
 modal.appendChild(modalMaker);
-let modalTracker = 0;
-//modalMaker.setAttribute("style", "opacity:0%");
 
-modalPlaceholder.onclick = (event) => {
+let menuOpener = document.getElementById("open-menu");
+let changeMenu = document.getElementById("main-menu-opener");
+changeMenu.setAttribute("style", "opacity:0%;");
+
+let modalTracker = 0;
+let menuChecker = 0;
+
+openModal.onclick = (event) => {
   if(modalTracker < 1){
     modalTracker = modalTracker+1;
     modalMaker.removeAttribute("style");
@@ -21,5 +23,20 @@ modalPlaceholder.onclick = (event) => {
     modalTracker = modalTracker-1;
     modalMaker.removeAttribute("style");
     modalMaker.setAttribute("style", "opacity:0%;");
+  }
+};
+
+menuOpener.onclick = (event) => {
+    console.log("Click run");
+    if(menuChecker < 1){
+    console.log("Click ONE");
+    menuChecker = menuChecker+1;
+    changeMenu.removeAttribute("style");
+    changeMenu.setAttribute("style", "opacity:100%;");
+  }else if(menuChecker >= 1){
+    console.log("Click ONE");
+    menuChecker = menuChecker-1;
+    changeMenu.removeAttribute("style");
+    changeMenu.setAttribute("style", "opacity:0%;");
   }
 };
