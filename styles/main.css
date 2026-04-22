@@ -1,6 +1,7 @@
 /*Main Styles*/
 body {
   background-color: rgba(255, 245, 211, 0.844);
+  text-align: center;
 }
 
 .show-options {
@@ -14,6 +15,40 @@ body {
   display: block;
   text-decoration: none;
   text-align: center;
+}
+
+/* Website Text */
+section {
+  height: fit-content;
+}
+
+h1 {
+  background-color: rgb(95, 158, 160);
+  margin-top: -70px;
+  font-weight: 300;
+}
+
+h2 {
+  color: rgb(134, 61, 61);
+  margin-top: -10px;
+  font-weight: 300;
+}
+
+h3 {
+  margin-top: -10px;
+  font-weight: 300;
+}
+
+p {
+  margin-top: -10px;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+blockquote {
+  margin-top: -5px;
+  padding-bottom: 4px;
+  font-weight: 300;
 }
 
 /*Menus*/
@@ -104,7 +139,7 @@ body {
   display: flex;
   position: absolute;
   z-index: 10;
-  height: 95vmax;
+  height: 900px;
   width: 100vmax;
   background: #2120214e;
   top: 0%;
