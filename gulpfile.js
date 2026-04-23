@@ -8,16 +8,16 @@ Used for formatting and start assistance: https://github.com/code-warrior/gulp-t
 Build knowledge and understand functions/syntax: https://gulpjs.com/docs/en/api/concepts
 */
 
-const { reload, watch } = require('browser-sync');
-const {src, dest, series} = require('gulp'),
-    CSSUglify = require('gulp-clean-css'),
-    babel = require('gulp-babel'),
-    htmlUglify = require('gulp-htmlmin');
+const {reload, watch} = require('browser-sync');
+const {src, dest, series} = require('gulp');
+    const CSSUglify = require('gulp-clean-css');
+    const babel = require('gulp-babel');
+    const htmlUglify = require('gulp-htmlmin');
     // eslint-disable-next-line no-sequences
     javaScriptUglify = require('gulp-uglify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
-    GulpCleanCss = require('gulp-clean-css');
+    gulpCleanCss = require('gulp-clean-css');
     let userBrowser = 'default';
 
     async function firefox() {
@@ -40,54 +40,34 @@ const {src, dest, series} = require('gulp'),
         ];
     }
 
-    let comrpressHTML = () => {
-        return src('index.html')
-        .pipe(htmlUglify({collapseWhitespace:true}))
-        .pipe(dest(`prod`));
-}
+    const comrpressHTML = () => src('index.html')
+        .pipe(htmlUglify({collapseWhitespace: true}))
+        .pipe(dest('prod'));
 
-    let compressCSS = () => {
-        return src('styles/main.css')
-        .pipe(GulpCleanCss({compatibility:'es5'}))
+    const compressCSS = () => src('styles/main.css')
+        .pipe(GulpCleanCss({compatibility: 'es5'}))
         .pipe(dest('prod/styles'));
-    }
 
-    let compressResetCSS = () => {
-        return src('styles/reset.css')
-        .pipe(GulpCleanCss({compatibility:'es5'}))
+    const compressResetCSS = () => src('styles/reset.css')
+        .pipe(GulpCleanCss({compatibility: 'es5'}))
         .pipe(dest('prod/styles'));
-    }
 
-    let transpileAndCompressJS = () => {
-        return src('js/main.js')
+    const transpileAndCompressJS = () => src('js/main.js')
         .pipe(babel())
         .pipe(javaScriptUglify())
-        .pipe(dest('prod/js'))
-    }
+        .pipe(dest('prod/js'));
 
-
-    let copyFiles = () => {
-        return src([
+    const copyFiles = () => src([
             '**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/*.*',
-            '!**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/img/',
-            '!**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/img/.gitignore',
             '!**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/**/*.js',
-            '!**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/styles/'
-        ], {dot:true})
-        .pipe(dest('prod'))
-    }
+            '!**/assignment-2--intro-to-internet-programming--cs-275--spring-2026/styles/',
+        ], {dot: true})
+        .pipe(dest('prod'));
 
-    let imgCopy = () => {
-        return src('img/*.*')
-        .pipe(dest('prod/img'))
-    }
+    const copyJSON = () => src('json/*.*')
+        .pipe(dest('prod/json'));
 
-    let copyJSON = () => {
-        return src('json/*.*')
-        .pipe(dest('prod/json'))
-    }
-
-    let serveSite = () => {
+    const serveSite = () => {
         browserSync({
             notify: true,
             reloadDelay: 25,
@@ -96,14 +76,14 @@ const {src, dest, series} = require('gulp'),
                 baseDir: [
                     'temp',
                     'assignment-2--intro-to-internet-programming--cs-275--spring-2026',
-                    'assignment-2--intro-to-internet-programming--cs-275--spring-2026/index.html'
+                    'assignment-2--intro-to-internet-programming--cs-275--spring-2026/index.html',
                 ],
             },
         });
     };
 
-    watch(`prod/jsScripts/*.js`, series(transpileAndCompressJS)).on(`change`, reload);
-    watch(`prod/cssStyles/*.scss`, series(compressCSS)).on(`change`, reload);
+    watch('prod/jsScripts/*.js', series(transpileAndCompressJS)).on('change', reload);
+    watch('prod/cssStyles/*.scss', series(compressCSS)).on('change', reload);
 
     exports.firefox = series(series, serveSite);
     exports.brave = series(series, serveSite);
@@ -125,5 +105,4 @@ const {src, dest, series} = require('gulp'),
         transpileAndCompressJS,
         copyJSON,
         copyFiles,
-        imgCopy,
     );
