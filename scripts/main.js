@@ -15,24 +15,23 @@ let changeMenu = document.getElementById("main-menu-opener");
 changeMenu.setAttribute("style", "opacity:0%;");
 modal.setAttribute("style", "opacity:0%;");
 
-let modalTracker = 0;
 let menuChecker = 0;
 
 openModal.onclick = (event) => {
-  if(modalTracker < 1){
-    modalTracker = modalTracker+1;
     modal.removeAttribute("style");
     modal.setAttribute("style", "opacity:100%;");
     modalBacking.removeAttribute("style");
     modalBacking.setAttribute("style", "opacity:100%;")
-  }else if(modalTracker >= 1){
-    modalTracker = modalTracker-1;
-    modal.removeAttribute("style");
-    modal.setAttribute("style", "opacity:0%;");
-    modalBacking.removeAttribute("style");
-    modalBacking.setAttribute("style", "opacity:0%;")
-  }
 };
+
+document.onkeydown = (event) => {
+    if(event.key == "Escape") {
+        modal.removeAttribute("style");
+        modal.setAttribute("style", "opacity:0%;");
+        modalBacking.removeAttribute("style");
+        modalBacking.setAttribute("style", "opacity:0%;");
+    }
+}
 
 menuOpener.onclick = (event) => {
     console.log("Click run");
