@@ -6,7 +6,6 @@ let modalMaker = document.createElement("img");
 let modalBacking = document.createElement("div");
 modalBacking.setAttribute("class", "modal-background");
 modalBacking.setAttribute("style", "opacity:0%;")
-modalMaker.setAttribute("src", "MAXIMIZE-YOUR-MODALS.png");
 modalMaker.setAttribute("style", "opacity:0%;");
 body.appendChild(modalBacking);
 modal.appendChild(modalMaker);
@@ -14,6 +13,7 @@ modal.appendChild(modalMaker);
 let menuOpener = document.getElementById("open-menu");
 let changeMenu = document.getElementById("main-menu-opener");
 changeMenu.setAttribute("style", "opacity:0%;");
+modal.setAttribute("style", "opacity:0%;");
 
 let modalTracker = 0;
 let menuChecker = 0;
@@ -21,14 +21,14 @@ let menuChecker = 0;
 openModal.onclick = (event) => {
   if(modalTracker < 1){
     modalTracker = modalTracker+1;
-    modalMaker.removeAttribute("style");
-    modalMaker.setAttribute("style", "opacity:100%;");
+    modal.removeAttribute("style");
+    modal.setAttribute("style", "opacity:100%;");
     modalBacking.removeAttribute("style");
     modalBacking.setAttribute("style", "opacity:100%;")
   }else if(modalTracker >= 1){
     modalTracker = modalTracker-1;
-    modalMaker.removeAttribute("style");
-    modalMaker.setAttribute("style", "opacity:0%;");
+    modal.removeAttribute("style");
+    modal.setAttribute("style", "opacity:0%;");
     modalBacking.removeAttribute("style");
     modalBacking.setAttribute("style", "opacity:0%;")
   }
